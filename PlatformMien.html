@@ -1,27 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>张智慧</title>
-
-    <!--用来加载外部资源用的标签-->
-    <!--相对路径 绝对路径-->
-    <link rel="short icon" href="Resource/icon.png">
-
     <link rel="stylesheet" href="ExternalStyle.css">
-
+    <link rel="short icon" href="Resource/icon.png">
+    <script type="text/javascript" src="util.js"></script>
     <style>
         article{
-            margin:20px;
+            margin: 20px;
         }
-        h3{
-            color:red;
-            font-size:18px;
-            padding-bottom:10px;
-            border-bottom:1px solid #dddddd;
+        #title{
+            color: red;
+            font-size: 18px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #dddddd;
         }
-        h4{
-            font-size:14px;
+        #subTitle{
+            font-size: 14px;
         }
         p{
             font-size: 12px;
@@ -31,39 +27,52 @@
     </style>
 </head>
 <body>
+    <header>
+        <span>平台风采</span>
+    </header>
 
-<!--第一部分-->
-<!--语义化标签：标签本身没有专门的意义，他的主要目的就是用来增强程序的课程行-->
-<!--Span用来放少量文字用的标签-->
-<header>
-    <span>平台风采</span>
-</header>
-
-<!--第二部分-->
-<!--img专门用来放图片资源用的-->
-<section class="DS_second_section">
-    <img src="Resource/banner4.png" alt="哥哥，请看下您的网络呗！">
-</section>
-
-<!--第三部分-->
+    <section>
+        <img class="banner" src="Resource/banner4.png" alt="请检查你的网络状态">
+    </section>
 <article>
-    <h3>公司简介</h3>
-    <h4>华来科技有限公司</h4>
-    <p>华杉科技（北京）有限公司一直秉承“在高薪和经验的路上，我们只做行业第一”　,致力于为整个互联网科技行业输送高级技术人才、做好每一款外包项目。</p>
-    <p>华杉科技（北京）有限公司是一家既专注于培养高级IT技术人才，为学员提供定制化IT职业规划方案及意见咨询服务，又是国内领先的智能手机软件外包服务商。公司由原东方爱智技术总监，原58同城技术总监，河南大学软件学院优秀毕业生共同创立。</p>
-    <p>华杉科技（北京）有限公司拥有业内知名的教研团队和雄厚的课程研发能力，课程的快速迭代时刻紧跟当今较为流行的前沿技术、不同行业的外包项目作为支撑，强有力的保证了学员的核心竞争力。强竞争力的一线技术人员和完善的外包服务流程充分保证了每一款项目的顺利执行。</p>
+    <!--<h3 id="title">公司简介</h3>-->
+    <!--<h4 id="subTitle">华杉科技（北京）有限公司</h4>-->
+    <!--<p>华杉科技（北京）有限公司一直秉承“在高薪和经验的路上，我们只做行业第一”　,致力于为整个互联网科技行业输送高级技术人才、做好每一款外包项目。</p>-->
+    <!--<p>华杉科技（北京）有限公司是一家既专注于培养高级IT技术人才，为学员提供定制化IT职业规划方案及意见咨询服务，又是国内领先的智能手机软件外包服务商。公司由原东方爱智技术总监，原58同城技术总监，河南大学软件学院优秀毕业生共同创立。</p>-->
+    <!--<p>华杉科技（北京）有限公司拥有业内知名的教研团队和雄厚的课程研发能力，课程的快速迭代时刻紧跟当今较为流行的前沿技术、不同行业的外包项目作为支撑，强有力的保证了学员的核心竞争力。强竞争力的一线技术人员和完善的外包服务流程充分保证了每一款项目的顺利执行。</p>-->
+    <h3 id="title"></h3>
+    <h4 id="subTitle"></h4>
+    <p id="info"></p>
+
+    <script>
+        function  assign(obj) {
+            var title_tag = document.getElementById("title");
+            var subTitle_tag = document.getElementById("subTitle");
+            var info_tag = document.getElementById("info");
+            title_tag.innerHTML = obj.title;
+            subTitle_tag.innerHTML = obj.subTitle;
+            info_tag.innerHTML = obj.info;
+        }
+        var obj_text = JSON.parse(localStorage.getItem("platform_json"));
+        if (obj_text){
+            var obj = obj_text.data;
+            assign(obj);
+        }
+        else{
+            request('aboutus', "", 'get',function (obj, obj1) {
+                assign(obj);
+                window.localStorage.setItem("platform_json", obj1);
+            });
+        }
+    </script>
 </article>
 
-
-<!--第四部分-->
 <footer>
-    <a href="DropletService.html"> <img src="Resource/nav10.png" alt=""> <span>小滴服务</span></a>
-    <a href="BusinessProject.html"> <img src="Resource/nav20.png" alt=""> <span>企业项目</span></a>
-    <a href="ServiceProcess.html"> <img src="Resource/nav30.png" alt=""> <span>服务流程</span></a>
-    <a href=" "> <img src="Resource/nav41.png" alt=""> <span style="color:red;">平台风采</span></a>
-    <a href="MyDroplet.html"> <img src="Resource/nav50.png" alt=""> <span>我的小滴</span></a>
+    <a href="DropletService.html"><img src="Resource/nav10.png" alt=""><span>小滴服务</span></a>
+    <a href="BusinessProject.html"><img src="Resource/nav20.png" alt=""><span>企业项目</span></a>
+    <a href="ServiceProcess.html"><img src="Resource/nav30.png" alt=""><span>服务流程</span></a>
+    <a href=""><img src="Resource/nav41.png" alt=""><span style="color:red;">平台风采</span></a>
+    <a href="MyDroplet.html"><img src="Resource/nav50.png" alt=""><span>我的小滴</span></a>
 </footer>
-
-
 </body>
 </html>

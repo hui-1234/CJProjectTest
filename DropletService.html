@@ -36,7 +36,6 @@
             margin-top: 10px;
         }
 
-
     </style>
 </head>
 <body>
@@ -49,8 +48,17 @@
 
 <!--第二部分-->
 <!--img专门用来放图片资源用的-->
-<section class="DS_second_section">
-    <img src="Resource/banner-1.png" alt="哥哥，请看下您的网络呗！">
+<section>
+    <img class="banner" id="banner" src="Resource/banner-1.png" alt="请检查你的网络状态">
+    <script>
+        var banner = document.getElementById("banner");
+        var index = 1;
+        function changeImg() {
+            index = index% 3 + 1;
+            banner.src="Resource/banner-"+index+".png";
+        }
+        setInterval(changeImg,2000);
+    </script>
 </section>
 
 <!--第三部分-->

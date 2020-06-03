@@ -8,92 +8,57 @@
     <link rel="short icon" href="Resource/icon.png">
 
     <link rel="stylesheet" href="ExternalStyle.css">
-
-    <script type="text/javascript" src="CommonClass.js"></script>
+    <!--导入js文件-->
+    <script type="text/javascript" src="util.js"></script>
 
     <style>
-        .L_second_div {
+        .head_div{
             text-align: center;
+            margin-bottom: 30px;
         }
-
-        .L_head_img {
+        .head_div img{
             margin-top: 50px;
         }
-
-        .L_form_inner_div {
+        .input_div{
+            border: 1px solid #dddddd;
+            border-radius:5px;
             width: 90%;
-            margin: 0 auto;
-            border: 1px solid #cccccc;
-            border-radius: 5px;
-            background: white;
-            margin-top: 30px;
             height: 100px;
-
+            margin: 0 auto;
+            background-color: #fff;
         }
-
-        .L_form_inner_div div span {
-            padding-left: 15px;
-            font-size: 20px;
-            line-height: 50px
-        }
-
-        .L_form_inner_div div {
+        .input_div div{
             height: 50px;
-            border-bottom: 1px solid #dddddd
-        }
-
-        .L_login_div {
-            height: 50px;
-            background: rgb(32, 90, 163);
-            width: 90%;
-            border-radius: 10px;
-            margin: 20px auto;
-            text-align: center
-        }
-
-        .L_login_btn {
             line-height: 50px;
-            height: 50px;
-            color: white;
-            font-size: 20px;
-            width: 100%
         }
-
-        input {
+        .input_div div span{
+            margin-left: 20px;
+        }
+        input{
+            border:none;
             outline: medium;
             background-color: transparent;
-            border: 0
+            font-size: 16px;
+        }
+        .login_div{
+            width: 90%;
+            height: 50px;
+            margin: 0 auto;
+            margin-top: 30px;
+            border-radius:10px;
+            background-color: #205AA3;
+            line-height: 50px;
+            text-align: center;
+        }
+        input[type=button]{
+            width: 100%;
+            height: 50px;
         }
 
     </style>
 </head>
 <body style="background: rgb(241, 241, 244)">
-<!--int sum(int a, int b)-->
 
- <!--int d=sum(3,6);-->
- <script>
-
-     /*普通定义函数的方式*/
-     function sum(a,b){
-         var c=a+b;
-         alert("函数调用到了")
-         return c;
-     }
-     /*变量名定义函数的方式*/
-     var sum1=function(a,b){
-         var c=a+b;
-         alert("函数调用到了，哈哈哈")
-         return c;
-     }
-    /*第二种方式的演变*/
-     var btn=document.getElementById("i_btn");
-     btn.onclick=function(a,b){
-         var c=a+b;
-         alert("函数调用到了，嘿嘿")
-         return c;
-
-     }
- </script>
 
 <!--第一部分-->
 <!--h5里面新增的语义化标签,它没有特殊的意义,仅是用来增强程序的可读性-->
@@ -108,55 +73,65 @@
 </div>
 
 <!--第三部分-->
-<form action="">
-    <div class="L_form_div">
-        <div class="L_form_inner_div">
-            <div>
-                <span>账号名:</span>
-                <input id="L_account" type="text" name="account"><br>
+    <form action="">
+        <div class="input_div">
+            <div style="border-bottom: 1px solid #dddddd">
+                <span>用户名：</span>
+                <input id="username" type="text" value="admin">
             </div>
             <div>
-                <span>密码:</span>
-                <input id="L_pwd" type="text" name="password"><br>
+                <span>密&nbsp;&nbsp;&nbsp;&nbsp;码：</span>
+                <input id="password" type="password" value="admin">
             </div>
         </div>
-    </div>
-    <div>
-        <div class="L_login_div">
-            <input class="L_login_btn" type="button" value="登录" id="btn">
+        <div class="login_div">
+            <input id="i_btn" style="color: #fff;" type="button" value="登录">
         </div>
-    </div>
-
 </form>
 
 
 <script>
-
-    // 获取登录按钮
-    var btn = document.querySelector("#btn");
-
-    // 注册点击事件
+    <!--int sum(int a, int b)-->
+    <!--int d=sum(3,6);-->
+    //  /*普通定义函数的方式*/
+    //  function sum(a,b){
+    //      var c=a+b;
+    //      alert("函数调用到了")
+    //      return c;
+    //  }
+    //  /*变量名定义函数的方式*/
+    //  var sum1=function(a,b){
+    //      var c=a+b;
+    //      alert("函数调用到了，哈哈哈")
+    //      return c;
+    //  }
+    // /*第二种方式的演变*/
+    //  var btn=document.getElementById("i_btn");
+    //  btn.onclick=function(a,b){
+    //      var c=a+b;
+    //      alert("函数调用到了，嘿嘿")
+    //      return c;
+    //
+    //  }
+    var btn = document.getElementById("i_btn");
     btn.onclick = function () {
-        var userName = encodeURIComponent(document.querySelector("#L_account").value);
-        var password = encodeURIComponent(document.querySelector("#L_pwd").value);
-
-        var par2 = "username=" + userName + "&pwd=" + password;
-
-        requestMethod('login', par2, 'post', function (returnStr) {
-            if (returnStr == "登录成功") {
-
-                window.localStorage.setItem("userName", userName);
-
-                location.href = "DropletService.html";
-            } else {
-                alert(returnStr);
-            }
-        });
+        //value 指的是value属性的值，即双引号中的全部内容
+        var username = encodeURIComponent(document.getElementById("username").value);
+        var password = encodeURIComponent(document.getElementById("password").value);
+        if(username.length!=0 && username!=null && password.length!=0 && password!=null){
+            //调用 util.js 中的方法
+            var params = "username="+username+"&pwd="+password;
+            requestData('post','login',params,function (res) {
+                if(res.code == 1) {
+                    location.href = "DropletService.html";
+                }else{
+                    alert(res.data);
+                }
+            })
+        }else{
+            alert("用户名或密码不能为空！")
+        }
     }
-
 </script>
-
-
-
 </body>
 </html>

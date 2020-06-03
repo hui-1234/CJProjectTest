@@ -11,69 +11,47 @@
     <link rel="stylesheet" href="ExternalStyle.css">
 
     <style>
-        .MD_external_div .MD_bg_img{
-            width: 100%;
-        }
-
-        .MD_external_div{
+        .External_div{
             position: relative;
+            z-index: -1;
         }
-
-        .MD_inner_div{
+        .Inner_div{
             position: absolute;
-
-            left: 50%;
+            width: 70px;
+            height: 120px;
             top: 50%;
-            width: 66px;
-            height: 76px;
-
-            margin-left: -33px;
+            left: 50%;
             margin-top: -60px;
-
+            margin-left: -35px;
             text-align: center;
         }
 
-        .MD_external_div .MD_inner_div button{
-            background: rgb(32, 131, 204);
+        .Inner_div button{
+            background-color:#2083CC;
             width: 66px;
-            height: 20px;
-
-            margin-top: 5px;
+            height: 33px;
         }
 
-        .MD_external_div .MD_inner_div span{
-            display: block;
-            margin-top: 5px;
-        }
-
-        .MD_bottom_div{
-            width: 100%;
-        }
-
-        .MD_bottom_div .MD_bottom_inner_div{
+        .Option_div{
+            border: 1px solid #dddddd;
+            border-radius:5px;
+            background-color: #fff;
             width: 90%;
             height: 50px;
-            margin: 0 auto;
-            border: 1px solid #cccccc;
-            border-radius: 5px;
-            background: white;
             line-height: 50px;
+            margin:0 auto;
             margin-top: 10px;
         }
 
-        .MD_left_img{
+        .left_img{
             float: left;
-            margin-left: 10px;
-            margin-top: 15px;
-            margin-right: 20px;
+            margin: 15px 20px 0 10px;
         }
 
-        .MD_right_img{
+        .right_img{
             float: right;
-            margin-right: 10px;
-            margin-top: 15px;
+            margin: 15px 10px 0 0;
         }
-
     </style>
 </head>
 <body>
@@ -86,57 +64,39 @@
 </header>
 
 <!--第二部分-->
-<div class="MD_external_div">
-    <img class="MD_bg_img" src="Resource/banner5.png" alt="">
-    <div class="MD_inner_div">
+
+<div class="External_div">
+    <img class="banner" src="Resource/banner5.png" alt="请检查你的网络状态">
+    <div class="Inner_div">
         <img src="Resource/head.png" alt="">
-        <span>华杉</span>
-        <button>退出登录</button>
+        <span style="display: block;margin: 5px 0;">慧慧慧</span>
+        <button id="quit"  onclick="javascript:location.href='index.html'">退出登录</button>
     </div>
 </div>
 
 <!--第三部分-->
-<div class="MD_bottom_div">
-    <div class="MD_bottom_inner_div">
-        <img class="MD_left_img" src="Resource/gr_1.png" alt="">
-        <span>我的客户</span>
-        <img class="MD_right_img" src="Resource/jt.png" alt="">
-    </div>
+<div class="Option_div">
+    <img class="left_img" src="Resource/gr_1.png" alt="">
+    <span>我的客户</span>
+    <img class="right_img" src="Resource/jt.png" alt="">
 </div>
-<div class="MD_bottom_div">
-    <div class="MD_bottom_inner_div">
-        <img class="MD_left_img" src="Resource/gr_1.png" alt="">
-        <span>我的客户</span>
-        <img class="MD_right_img" src="Resource/jt.png" alt="">
-    </div>
+
+<div class="Option_div">
+    <img class="left_img" src="Resource/gr_2.png" alt="">
+    <span>我的余额</span>
+    <img class="right_img" src="Resource/jt.png" alt="">
 </div>
-<div class="MD_bottom_div">
-    <div class="MD_bottom_inner_div">
-        <img class="MD_left_img" src="Resource/gr_1.png" alt="">
-        <span>我的客户</span>
-        <img class="MD_right_img" src="Resource/jt.png" alt="">
-    </div>
+
+<div class="Option_div">
+    <img class="left_img" src="Resource/gr_3.png" alt="">
+    <span>添加客户</span>
+    <img class="right_img" src="Resource/jt.png" alt="">
 </div>
-<div class="MD_bottom_div">
-    <div class="MD_bottom_inner_div">
-        <img class="MD_left_img" src="Resource/gr_1.png" alt="">
-        <span>我的客户</span>
-        <img class="MD_right_img" src="Resource/jt.png" alt="">
-    </div>
-</div>
-<div class="MD_bottom_div">
-    <div class="MD_bottom_inner_div">
-        <img class="MD_left_img" src="Resource/gr_1.png" alt="">
-        <span>我的客户</span>
-        <img class="MD_right_img" src="Resource/jt.png" alt="">
-    </div>
-</div>
-<div class="MD_bottom_div">
-    <div class="MD_bottom_inner_div">
-        <img class="MD_left_img" src="Resource/gr_1.png" alt="">
-        <span>我的客户</span>
-        <img class="MD_right_img" src="Resource/jt.png" alt="">
-    </div>
+
+<div class="Option_div">
+    <img class="left_img" src="Resource/gr_4.png" alt="">
+    <span>修改密码</span>
+    <img class="right_img" src="Resource/jt.png" alt="">
 </div>
 
 <!--第四部分-->
